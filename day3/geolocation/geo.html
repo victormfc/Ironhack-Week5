@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+
+<html>
+  <body>
+    <img id="js-map" src="" />
+
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+
+    <script>
+     function handlePosition(geoposition) {
+        var lat = geoposition.coords.latitude;
+        var lon = geoposition.coords.longitude;
+        console.log(arguments)
+     
+        var url = `https://maps.googleapis.com/maps/api/staticmap?center=${lat},${lon}&zoom=13&size=400x300&markers=color:red%7Clabel:A%7C${lat},${lon}`;
+
+        $('#js-map').attr('src', url)  
+        };
+
+        navigator.geolocation.getCurrentPosition(handlePosition)
+    </script>
+  </body>
+</html>
+
